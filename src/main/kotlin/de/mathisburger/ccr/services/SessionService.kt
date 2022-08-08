@@ -11,7 +11,7 @@ class SessionService(val db: SessionRepository) {
      * Creates a new session
      */
     fun createSession(ip: String): Session? {
-        var session = Session(ip);
+        val session = Session(ip);
         db.save(session);
         return db.findSessionByIp(ip);
     }
