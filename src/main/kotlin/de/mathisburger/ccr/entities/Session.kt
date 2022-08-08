@@ -1,7 +1,11 @@
 package de.mathisburger.ccr.entities
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+import javax.persistence.Column
+import javax.persistence.Entity
 
-@Table("SESSIONS")
-data class Session(@Id val id: String?, val ip: String?);
+@Entity
+class Session(
+    @Column(nullable = true)
+    val ip: String?=null
+): BaseEntity() {
+}
