@@ -20,4 +20,4 @@ class Game(
 
     @ManyToOne(targetEntity = CategoryList::class)
     val categoryList: CategoryList? = null
-): BaseEntity()
+): BaseEntity();

@@ -19,5 +19,4 @@ class Session(
 
     @Column(nullable = false)
     val sessionSecret: String? = UUID.randomUUID().toString(),
-): BaseEntity() {
-}
+): BaseEntity();
