@@ -4,6 +4,8 @@ import javax.persistence.*
 
 @Entity
 class CategoryList(
+    @Column(nullable = true)
+    val name: String? = null,
     @ElementCollection
     @Column(name = "words")
     val categories: MutableList<String> = mutableListOf(),

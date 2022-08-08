@@ -3,9 +3,12 @@ package de.mathisburger.ccr.repository
 import de.mathisburger.ccr.entities.Session
 import org.springframework.data.jdbc.repository.query.Query
 import org.springframework.data.repository.CrudRepository
+import org.springframework.stereotype.Repository
+import java.util.UUID
 
-interface SessionRepository : CrudRepository<Session, String> {
+@Repository
+interface SessionRepository : CrudRepository<Session, UUID> {
 
-    fun findSessionById(id: String): Session?
+    fun findSessionById(id: UUID): Session?
     fun findSessionByIp(ip: String): Session?
 }
