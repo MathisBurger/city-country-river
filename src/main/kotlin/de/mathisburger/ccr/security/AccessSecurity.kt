@@ -24,9 +24,10 @@ class AccessSecurity {
     );
 
     fun getCurrentSession(): Session? {
-        val session =  sessionRepository.findSessionById(UUID.fromString(findCookie("SESSION_ID")));
-        if (session != null && session.sessionSecret.equals(findCookie("SESSION_SECRET"))) {
-            return session;
+        val id = findCookie("SESSION_ID") ?: return null;
+        val session =  sessionRepository.findById(id.toLong());
+        if (!session.isEmpty && session.get().sessionSecret.equals(findCookie("SESSION_SECRET"))) {
+            return session.get();
         }
         return null;
     }

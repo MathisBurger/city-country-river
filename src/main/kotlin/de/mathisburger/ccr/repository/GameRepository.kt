@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface GameRepository: CrudRepository<Game, UUID> {
+interface GameRepository: CrudRepository<Game, Long> {
 
     fun findGameById(id: UUID): Game?
 }

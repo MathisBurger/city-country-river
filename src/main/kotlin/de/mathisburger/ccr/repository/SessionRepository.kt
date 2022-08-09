@@ -7,8 +7,5 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface SessionRepository : CrudRepository<Session, UUID> {
-
-    fun findSessionById(id: UUID): Session?
-    fun findSessionByIp(ip: String): Session?
+interface SessionRepository : CrudRepository<Session, Long> {
 }

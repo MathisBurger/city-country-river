@@ -1,10 +1,7 @@
 package de.mathisburger.ccr.entities
 
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.ManyToOne
-import javax.persistence.OneToOne
+import javax.persistence.*
 
 @Entity
 class Session(
@@ -19,4 +16,6 @@ class Session(
 
     @Column(nullable = false)
     val sessionSecret: String? = UUID.randomUUID().toString(),
-): BaseEntity();
+): BaseEntity() {
+
+}
