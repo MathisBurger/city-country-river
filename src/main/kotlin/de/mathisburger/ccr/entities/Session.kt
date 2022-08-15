@@ -10,12 +10,10 @@ class Session(
     var ip: String?=null,
 
     @ManyToOne(targetEntity = Game::class, optional = true)
-    @JoinColumn(name = "game_id")
     @JsonIgnore
     var currentGame: Game? = null,
 
-    @OneToOne(targetEntity = GameOwner::class, mappedBy = "owner", optional = true)
-    @JoinColumn(name = "owner_id")
+    @OneToOne(targetEntity = GameOwner::class,  optional = true)
     var gameOwner: GameOwner? = null,
 
     @Column(nullable = false)
