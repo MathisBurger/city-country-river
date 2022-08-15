@@ -1,6 +1,7 @@
 package de.mathisburger.ccr.controller
 
 import de.mathisburger.ccr.entities.Session
+import de.mathisburger.ccr.security.AccessSecurity
 import de.mathisburger.ccr.services.SessionService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse
 
 
 @RestController
-class SessionController(val service: SessionService) {
+class SessionController(val service: SessionService, val security: AccessSecurity) {
 
     @Autowired
     private lateinit var request: HttpServletRequest;
@@ -31,5 +32,10 @@ class SessionController(val service: SessionService) {
         response.addCookie(sessionIdCookie);
         response.addCookie(sessionSecretCookie);
         return "Session successfully created";
+    }
+
+    @GetMapping("/session/checkSessionActive")
+    fun checkSessionActive(): Boolean {
+        return security.getCurrentSession() != null;
     }
 }

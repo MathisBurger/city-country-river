@@ -5,11 +5,10 @@ import javax.persistence.*
 @Entity
 class CategoryList(
     @Column(nullable = true)
-    val name: String? = null,
-    @ElementCollection
-    @Column(name = "words")
-    val categories: MutableList<String> = mutableListOf(),
+    var name: String? = null,
+    @Column
+    var categories: List<String> = ArrayList<String>(),
 
     @OneToMany(targetEntity = Game::class, mappedBy = "categoryList")
-    val games: MutableList<Game> = mutableListOf()
+    var games: MutableList<Game> = mutableListOf()
 ): BaseEntity();
