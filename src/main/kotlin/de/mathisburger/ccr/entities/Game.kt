@@ -9,5 +9,8 @@ class Game(
 
     @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL],mappedBy = "ownedGame")
     @JoinColumn(name = "SESSION")
-    var owningSession: Session? = null
+    var owningSession: Session? = null,
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL],mappedBy = "game")
+    var player: MutableList<Player> = mutableListOf()
 ): BaseEntity()

@@ -1,0 +1,20 @@
+CREATE TABLE player
+(
+    id      BIGINT AUTO_INCREMENT NOT NULL,
+    name    VARCHAR(255)          NOT NULL,
+    session BIGINT,
+    game    BIGINT,
+    CONSTRAINT pk_player PRIMARY KEY (id)
+);
+
+ALTER TABLE session
+    ADD player BIGINT;
+
+ALTER TABLE player
+    ADD CONSTRAINT FK_PLAYER_ON_GAME FOREIGN KEY (game) REFERENCES game (id);
+
+ALTER TABLE player
+    ADD CONSTRAINT FK_PLAYER_ON_SESSION FOREIGN KEY (session) REFERENCES session (id);
+
+ALTER TABLE session
+    ADD CONSTRAINT FK_SESSION_ON_PLAYER FOREIGN KEY (player) REFERENCES player (id);

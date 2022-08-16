@@ -15,7 +15,11 @@ class Session(
 
     @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     @JoinColumn(name = "GAME")
-    var ownedGame: Game? = null
+    var ownedGame: Game? = null,
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @JoinColumn(name = "player")
+    var playerProfile: Player? = null
 ): BaseEntity() {
 
 }
