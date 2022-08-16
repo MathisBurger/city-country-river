@@ -20,7 +20,6 @@ class AccessSecurity {
     lateinit var sessionRepository: SessionRepository;
 
     var voters: List<SecurityVoterInterface> = listOf(
-        GameVoter()
     );
 
     fun getCurrentSession(): Session? {
