@@ -1,0 +1,6 @@
+CREATE TABLE game
+(
+    id   BIGINT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255)          NOT NULL,
+    CONSTRAINT pk_game PRIMARY KEY (id)
+);

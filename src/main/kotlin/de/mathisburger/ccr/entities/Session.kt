@@ -12,6 +12,10 @@ class Session(
     @Column(nullable = false)
     @JsonIgnore
     var sessionSecret: String? = UUID.randomUUID().toString(),
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @JoinColumn(name = "GAME")
+    var ownedGame: Game? = null
 ): BaseEntity() {
 
 }
